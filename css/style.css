@@ -1,0 +1,36 @@
+
+
+nav ul li a {
+    color: rgb(28, 151, 227);
+    display: flex;
+    flex-direction: row;
+    padding: 10px 10px;
+    margin: 10px 10px  30px 10px;
+
+   
+    text-align: center;
+    padding: 20px 5% 0px 5%;
+    text-decoration: none;
+    font-size: 20px;
+    
+
+}
+
+nav ul li {
+    display: inline-block;
+    padding: 20px 10px;
+    font-family: 'Righteous', cursive;
+    margin-right: 30px;
+}
+
+
+
+nav {
+    width: 50%;
+    margin: auto;
+}
+
+footer
+{
+    text-align: center 
+}
