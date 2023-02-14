@@ -33,29 +33,61 @@ nav {
 }
 
 
-div {
-    background-color: #060047;
+/** .test { 
+    background-color:#060047;
     color: #B3005E;
     font-weight: lighter;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    text-align: center;
-    margin: 100px;
-    padding: 100px;
-    width: 200px;
-    height: 300px;
+    font-size: 12px;
+    /* flex-wrap: wrap; */
+     /* display: flex;   */
+      /* flex-wrap: wrap;  */
+     /* flex-direction: column;  */
+     /* justify-content:space-between;  */
+    /* text-align:center; */
+    /* align-items: center; */
 
-}
+    /* display: inline;  */
 
-div img {
-    width: 200px;
-    height: 200px;
+      margin: 50px;   
+     /* padding: 50px;  */
+     width: 200px; 
+    /* height: 300px; */
+
+/* } */
+
+.card {
+    
+    margin: 0 -5px;
+    
+  }
+  .card .content {
+    text-align:center;
+    background-color:#060047;
+    color: #B3005E;
+    font-weight: lighter;
+    font-size: 12px;
+    float: left;
+  width: 25%;
+  height: 25%;
+  padding: 0 10px;
+  margin: 20px;
+  }
+
+/* h4 { */
+    /* display: inline-block; */
+/* } */
+ .card img {
+     width: 100px;
+    height: 100px;
     border-radius: 200px;
-    float: center;
+    /* float:left;  */
 
 }
 
 footer {
-    text-align: center
+    text-align: center;
+    position: fixed;
+   left: 0;
+   bottom: 0;
+   width: 100%;
 }

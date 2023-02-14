@@ -41,12 +41,17 @@ Employee.prototype.render = function () {
      document.write(`Net Salary : ${this.Salary ()}`);
      document.write(`<br>`);*/
 
-    const container = document.getElementById('event');
+    const container = document.getElementById('myMain');
     //console.log(container);
 
 
     const divEl = document.createElement('div');
     container.appendChild(divEl);
+    container.classList.add("card");
+    divEl.classList.add("content");
+
+    // const divEl2 = document.createElement('div');
+    // container.appendChild(divEl2);
 
     const imgEl = document.createElement('img');
     divEl.appendChild(imgEl);
@@ -61,6 +66,9 @@ Employee.prototype.render = function () {
     const idfEl = document.createElement('h4');
     divEl.appendChild(idfEl);
     idfEl.textContent = `ID : ${this.employeeID}`;
+
+    
+    
 
     const deptEl = document.createElement('h4');
     divEl.appendChild(deptEl);
@@ -98,16 +106,16 @@ i5.render();
 i6.render();
 i7.render();*/
 
-let eventS = document.getElementById("event");
-eventS.addEventListener('submit', addNewEmployeeHandler);
+let eventS = document.getElementById("fo");
+fo.addEventListener('submit', addNewEmployeeHandler);
 
-function addNewEmployeeHandler(event) {
-    event.preventDefault();
-    console.log(event);
-    let FullName = event.target.name.value;
-    let Department = event.target.department.value;
-    let Level = event.target.level.value;
-    let ImgPath = event.target.ImgUrl.value;
+function addNewEmployeeHandler(fo) {
+    fo.preventDefault();
+    console.log(fo);
+    let FullName = fo.target.name.value;
+    let Department = fo.target.department.value;
+    let Level = fo.target.level.value;
+    let ImgPath = fo.target.ImgUrl.value;
 
 
     let newEmployee = new Employee(FullName, Department, Level, ImgPath);
