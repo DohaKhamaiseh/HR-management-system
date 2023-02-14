@@ -1,18 +1,20 @@
-
+* {
+    font-family: 'Righteous', cursive;
+}
 
 nav ul li a {
-    color: rgb(28, 151, 227);
+    color: #B3005E;
     display: flex;
     flex-direction: row;
     padding: 10px 10px;
-    margin: 10px 10px  30px 10px;
+    margin: 10px 10px 30px 10px;
 
-   
+
     text-align: center;
     padding: 20px 5% 0px 5%;
     text-decoration: none;
     font-size: 20px;
-    
+
 
 }
 
@@ -30,7 +32,30 @@ nav {
     margin: auto;
 }
 
-footer
-{
-    text-align: center 
+
+div {
+    background-color: #060047;
+    color: #B3005E;
+    font-weight: lighter;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    text-align: center;
+    margin: 100px;
+    padding: 100px;
+    width: 200px;
+    height: 300px;
+
+}
+
+div img {
+    width: 200px;
+    height: 200px;
+    border-radius: 200px;
+    float: center;
+
+}
+
+footer {
+    text-align: center
 }
