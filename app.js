@@ -1,5 +1,7 @@
 'use strict';
 
+let empArr = [];
+
 function Employee(fullName, department, level, imgPath) {
     this.imgPath = imgPath;
     this.fullName = fullName;
@@ -7,6 +9,7 @@ function Employee(fullName, department, level, imgPath) {
     this.level = level;
     this.salary = 0;
     this.employeeID = 0;
+    empArr.push(this);
 
 }
 
@@ -36,59 +39,69 @@ Employee.prototype.empID = function () {
     this.employeeID = ("" + Math.random()).substring(2, 6);
 }
 
-Employee.prototype.render = function () {
-    /* document.write(`Employee Name : ${this.fullName}`);
-     document.write(`Net Salary : ${this.Salary ()}`);
-     document.write(`<br>`);*/
+function render() {
 
     const container = document.getElementById('myMain');
-    //console.log(container);
+    console.log(container);
+    container.innerHTML = '';
 
+   // getEmployee();
 
-    const divEl = document.createElement('div');
-    container.appendChild(divEl);
-    container.classList.add("card");
-    divEl.classList.add("content");
-
-    // const divEl2 = document.createElement('div');
-    // container.appendChild(divEl2);
-
-    const imgEl = document.createElement('img');
-    divEl.appendChild(imgEl);
-    imgEl.setAttribute('src', this.imgPath);
-    imgEl.width = "150";
-    imgEl.height = "150";
-
-    const nameEl = document.createElement('h4');
-    divEl.appendChild(nameEl);
-    nameEl.textContent = `Full Name: ${this.fullName}`;
-
-    const idfEl = document.createElement('h4');
-    divEl.appendChild(idfEl);
-    idfEl.textContent = `ID : ${this.employeeID}`;
-
-    
-    
-
-    const deptEl = document.createElement('h4');
-    divEl.appendChild(deptEl);
-    deptEl.textContent = `Department: ${this.department}`;
-
-    /*const dept = ["Administration", "Marketing", "Development", "Finance"];
-    for (let i = 0; i < 4; i++) {
-        if (dept[i] == this.department) {
-            const result = dept.filter(this.department);
-        }
+    if (empArr == null) //localstorage is empty
+    {
+        empArr = [];
     }
-    deptEl.textContent = `Department: ${result}`;*/
+    for (let i = 0; i < empArr.length; i++) {
 
 
-    const levEl = document.createElement('h4');
-    divEl.appendChild(levEl);
-    levEl.textContent = `Level: ${this.level}`;
+        const container = document.getElementById('myMain');
+        //console.log(container);
 
+
+        const divEl = document.createElement('div');
+        container.appendChild(divEl);
+        container.classList.add("card");
+        divEl.classList.add("content");
+
+        // const divEl2 = document.createElement('div');
+        // container.appendChild(divEl2);
+
+        const imgEl = document.createElement('img');
+        divEl.appendChild(imgEl);
+        imgEl.setAttribute('src', empArr[i].imgPath);
+        imgEl.width = "150";
+        imgEl.height = "150";
+
+        const nameEl = document.createElement('h4');
+        divEl.appendChild(nameEl);
+        nameEl.textContent = `Full Name: ${empArr[i].fullName}`;
+
+        const idfEl = document.createElement('h4');
+        divEl.appendChild(idfEl);
+        idfEl.textContent = `ID : ${empArr[i].employeeID}`;
+
+
+
+
+        const deptEl = document.createElement('h4');
+        divEl.appendChild(deptEl);
+        deptEl.textContent = `Department: ${empArr[i].department}`;
+
+        /*const dept = ["Administration", "Marketing", "Development", "Finance"];
+        for (let i = 0; i < 4; i++) {
+            if (dept[i] == this.department) {
+                const result = dept.filter(this.department);
+            }
+        }
+        deptEl.textContent = `Department: ${result}`;*/
+
+
+        const levEl = document.createElement('h4');
+        divEl.appendChild(levEl);
+        levEl.textContent = `Level: ${empArr[i].level}`;
+
+    }
 }
-
 
 /*let i1 = new Employee(1000, "Ghazi Samer", "Administration", "Senior");
 let i2 = new Employee(1001, "Lana Ali", "Finance", "Senior");
@@ -120,7 +133,24 @@ function addNewEmployeeHandler(fo) {
 
     let newEmployee = new Employee(FullName, Department, Level, ImgPath);
     newEmployee.empID();
-    newEmployee.render();
+    newEmployee.Salary();
+
+    let jsonArr = JSON.stringify(empArr);
+    localStorage.setItem("allEmployee", jsonArr);
+
+    render();
 
 
 }
+
+function getEmployee() {
+
+    let jsonArr = localStorage.getItem("allEmployee");
+    if (jsonArr !== null) {
+    empArr= JSON.parse(jsonArr);
+      }
+}
+
+getEmployee();
+
+render();
